@@ -21,7 +21,7 @@ const GoingDialog: React.FC<GoingDialogProps> = ({ guest, guests, setGuest, addG
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle className="text-4xl">Are you sure you're going?</DialogTitle>
+                    <DialogTitle className="text-4xl">Are you sure you&apos;re going?</DialogTitle>
                     <DialogDescription className="text-base flex flex-col gap-2">
                         You can change this later.
                         <label htmlFor="" className="mt-4">

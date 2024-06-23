@@ -1,5 +1,5 @@
-import { Link, useParams } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import axios from "axios"
 import { Button } from "./ui/button";
 import { useToast } from "@/components/ui/use-toast";
@@ -36,7 +36,7 @@ export default function StopPage() {
     }
 
 
-    const submitPage = async (event: React.MouseEvent) => {
+    const submitPage = async () => {
         startLoading();
        
         await axios.post(`${apiUrl}/delete-user`, {

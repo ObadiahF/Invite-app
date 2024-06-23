@@ -1,5 +1,4 @@
 import { MainNav } from "@/components/main-nav";
-import { useParams } from "react-router-dom";
 export function SiteHeader() {
   return (
     <div className="grid">

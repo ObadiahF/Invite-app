@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { CalendarIcon, MapPinIcon, Users, CircleOffIcon } from "lucide-react";
-import { Button } from "./ui/button";
-import GuestCard from "./GuestCard";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog";
 import { useToast } from "@/components/ui/use-toast";
 import GoingDialog from "./GoingModal";
 import CantAttendDialog from "./CantAttendDialog";

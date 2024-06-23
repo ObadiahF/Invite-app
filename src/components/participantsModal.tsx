@@ -17,7 +17,7 @@ const ParticipantsModal: React.FC<PropsT> = ({ guests, btnTxt, host }) => {
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle className="text-4xl">{host}'s bringing {guests.length} guest{guests.length > 1 && "s"}.</DialogTitle>
+                    <DialogTitle className="text-4xl">{host}&apos;s bringing {guests.length} guest{guests.length > 1 && "s"}.</DialogTitle>
                     <DialogDescription className="text-base flex flex-col gap-2">
                         <div className="max-h-40 overflow-auto flex flex-col gap-2 mt-5">
                             {guests.map((g) => (

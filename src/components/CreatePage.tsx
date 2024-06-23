@@ -32,10 +32,10 @@ export default function CreatePage() {
     const [token, setToken] = useState("");
     const [desc, setDesc] = useState("");
     const [selectedBtn, setSelectedBtn] = useState("");
-    const [common, setCommon] = useState<location[]>([
+    const common = [
         { name: "Itech", address: "16100 NE 50th Ave, Vancouver, WA 98686"},
-        { name: "Kiwanis Park", address: "422 SW 2nd Ave, Battle Ground, WA 98604"},
-    ])
+        { name: "Kiwanis Park", address: "422 SW 2nd Ave, Battle Ground, WA 98604"}
+    ]
 
     useEffect(() => {
         const t = localStorage.getItem("token");

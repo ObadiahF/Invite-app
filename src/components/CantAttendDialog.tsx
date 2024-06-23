@@ -18,7 +18,7 @@ const CantAttendDialog: React.FC<CantAttendDialogProps> = ({ submitNo, btnTxt })
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle className="text-4xl">
-                        Are you sure you can't attend?
+                        Are you sure you can&apos;t attend?
                     </DialogTitle>
                     <DialogDescription className="text-base flex flex-col gap-3">
                         You can change this later.
