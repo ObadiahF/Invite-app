@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        apple: ["-apple-system, BlinkMacSystemFont, sans-serif;"]
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

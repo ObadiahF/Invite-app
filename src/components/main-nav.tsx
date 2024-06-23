@@ -1,6 +1,6 @@
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { Icons } from "@/components/icons";
+import { CalendarDays } from "lucide-react";
 import { NavItem } from "@/types/nav";
 
 interface MainNavProps {
@@ -10,8 +10,8 @@ interface MainNavProps {
 export function MainNav({ items }: MainNavProps) {
   return (
     <div className="flex gap-6 md:gap-10">
-      <a href="/" className="flex items-center space-x-2">
-        <Icons.laptop className="h-6 w-6" />
+      <a className="flex items-center space-x-2">
+        <CalendarDays className="h-6 w-6"/>
         <span className="inline-block font-bold">{siteConfig.name}</span>
       </a>
       {items?.length ? (
@@ -23,7 +23,7 @@ export function MainNav({ items }: MainNavProps) {
                   key={index}
                   href={item.href}
                   className={cn(
-                    "flex items-center text-sm font-medium text-muted-foreground",
+                    "flex items-center text-sm font-medium text-muted-foreground text-center",
                     item.disabled && "cursor-not-allowed opacity-80"
                   )}
                 >
