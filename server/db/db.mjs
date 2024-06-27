@@ -1,6 +1,8 @@
 import 'dotenv/config'
 import mongoose from 'mongoose'
-import { Event, Users } from './models.js'
+import { Event, Users } from './models.mjs'
+import { getGateWay } from '../messaging/carrier.mjs'
+import { sendEventOut } from '../messaging/email.mjs;'
 
 const MONGO_URI = process.env.uri
 // Connect to MongoDB
@@ -40,6 +42,7 @@ export const createEvent = async (data, token) => {
             not_going: []
         });
 
+        sendEventOut(token._id, event._id.toString())
         return `${event._id.toString()}/${token._id.toString()}`;
     } catch (error) {
         console.error('Error creating event:', error);
@@ -59,9 +62,11 @@ export const getEvent = async (id) => {
 
 export const createUser = async (name, number) => {
     try {
+        const gateWay = await getGateWay(number)
         const user = await Users.create({
             name,
             number,
+            gate_way: gateWay,
             token: Math.floor(Math.random() * 10_000).toString() //Generate random 4 digit num
         });
 
@@ -87,6 +92,19 @@ export const getUser = async (id, number = null) => {
         //console.error('Error creating access token:', error);
         return null;
     }
+}
+
+export const getAllUsers = async (exludedPerson) => {
+    try {
+        const users = await Users.find({
+            _id: { $nin: [exludedPerson] }
+        })
+        return users;
+    } catch (error) {
+        console.error('Error adding user:', error);
+        return false;
+    }
+
 }
 
 export const addUserToEvent = async (evId, name, guests = null) => {

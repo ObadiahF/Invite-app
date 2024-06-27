@@ -18,7 +18,6 @@ import {
 
 export default function InvitePage() {
     const apiUrl = import.meta.env.VITE_API_URL;
-
     const { toast } = useToast();
     const { startLoading, stopLoading } = useLoading();
     const [name, setName] = useState("");

@@ -10,7 +10,6 @@ import { useParams } from "react-router-dom";
 
 export default function HomePage() {
   const apiUrl = import.meta.env.VITE_API_URL;
-
   type modeType = "undecided" | "going" | "not going";
   interface Participant {
     name: string;

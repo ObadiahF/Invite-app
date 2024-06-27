@@ -21,7 +21,8 @@ const eventSchema = new Schema({
 const users = new Schema({
     name: String,
     token: String,
-    number: String
+    number: String,
+    gate_way: String
 })
 
 export const Event = model('Event', eventSchema);
