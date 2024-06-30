@@ -25,11 +25,20 @@ export default function InvitePage() {
 
 
     const checkValues = (e: React.MouseEvent) => {
+        const phoneNumberRegex = /^[0-9]{10}$/;
         if (!name || !phoneNumber) {
             e.preventDefault();
             toast({
                 title: "Incomplete!",
                 description: "All fields must be filled in order to create event.",
+                variant: "destructive"
+            });
+        }
+        if (!phoneNumberRegex.test(phoneNumber)) {
+            e.preventDefault();
+            toast({
+                title: "Invalid Phone Number!",
+                description: "Phone number must be in 10 digits with no spaces or punctuation.",
                 variant: "destructive"
             });
         }
@@ -50,11 +59,16 @@ export default function InvitePage() {
             setName("");
             setPhoneNumber("");
         })
-            .catch(() => {
+            .catch((e) => {
                 event.preventDefault();
+                let errorMsg = "A server error has occurred, please try again later..."
+                if (e?.response?.data?.errorMessage === "Invalid Phone Number!") {
+                    errorMsg = e.response.data.errorMessage;
+                    setPhoneNumber("");
+                }
                     toast({
                         title: "Server Error!",
-                        description: "A server error has occurred, please try again later...",
+                        description: errorMsg,
                         variant: "destructive"
                     });
             }).finally(() => {

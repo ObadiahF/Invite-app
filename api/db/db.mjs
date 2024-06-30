@@ -1,8 +1,7 @@
 import 'dotenv/config'
 import mongoose from 'mongoose'
 import { Event, Users } from './models.mjs'
-import { getGateWay } from '../messaging/carrier.mjs'
-import { sendEventOut } from '../messaging/email.mjs;'
+import { sendEventOut } from '../messaging/email.mjs'
 
 const MONGO_URI = process.env.uri
 // Connect to MongoDB
@@ -60,16 +59,14 @@ export const getEvent = async (id) => {
     }
 }
 
-export const createUser = async (name, number) => {
+export const createUser = async (name, number, gateWay) => {
     try {
-        const gateWay = await getGateWay(number)
         const user = await Users.create({
             name,
             number,
             gate_way: gateWay,
-            token: Math.floor(Math.random() * 10_000).toString() //Generate random 4 digit num
+            token: Math.floor(Math.random() * 10_000).toString().padStart(4, '0') //Generate random 4 digit num
         });
-
         return user;
     } catch (error) {
         console.error('Error creating access token:', error);

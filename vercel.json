@@ -1,8 +1,17 @@
 {
     "rewrites": [
         {
+            "source": "/api/(.*)",
+            "destination": "/api/index.mjs"
+        },
+        {
             "source": "/(.*)",
             "destination": "/"
         }
-    ]
+    ],
+    "functions": {
+        "api/index.mjs": {
+            "runtime": "vercel-node@1.10.0"
+        }
+    }
 }
