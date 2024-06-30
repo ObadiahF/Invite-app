@@ -149,3 +149,8 @@ app.post("/delete-user", async (req, res) => {
 });
 
 export default app;
+/*
+app.listen(port, () => {
+    console.log("listening");
+})
+*/
