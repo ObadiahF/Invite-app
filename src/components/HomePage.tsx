@@ -104,7 +104,7 @@ export default function HomePage() {
   };
 
   const submitYes = async () => {
-    const res = axios.post(`http://localhost:8080/edit/event/${eventId}`, {
+    const res = axios.post(`${apiUrl}/edit/event/${eventId}`, {
       uid: uid,
       mode: "going",
       guests: guests,
@@ -131,7 +131,7 @@ export default function HomePage() {
   };
 
   const submitNo = async (message: string) => {
-    const res = axios.post(`http://localhost:8080/edit/event/${eventId}`, {
+    const res = axios.post(`${apiUrl}/edit/event/${eventId}`, {
       uid: uid,
       mode: "not going",
       message
