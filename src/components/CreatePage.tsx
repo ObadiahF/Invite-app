@@ -87,7 +87,7 @@ export default function CreatePage() {
         })
         .catch((e) => {
             event.preventDefault();
-            const errorMsg = e.response.data?.error;
+            const errorMsg = e.response?.data?.error;
             console.log(e)
             if (errorMsg) {
                 toast({
